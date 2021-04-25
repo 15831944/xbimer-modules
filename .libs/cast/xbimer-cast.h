@@ -7,12 +7,16 @@
 
 #include "common.h"
 
-#if defined(ARCHICAD_22)
+#if defined(ARCHICAD_AC22)
 #include "ac22.h"
 #endif
 
-#if defined(ARCHICAD_23)
+#if defined(ARCHICAD_AC23)
 #include "ac23.h"
+#endif
+
+#if defined(ARCHICAD_AC24)
+#include "ac24.h"
 #endif
 
 #endif
