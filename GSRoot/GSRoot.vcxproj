@@ -9,10 +9,14 @@
       <Configuration>ac23</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="ac24|x64">
+      <Configuration>ac24</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{D18790EF-7670-4BB4-B2D8-F8B849EC9F25}</ProjectGuid>
+    <ProjectGuid>{BC4274FC-F079-4758-A00D-867B77AFCDDE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>GSRoot</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
@@ -32,6 +36,13 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ac24|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings" />
   <ImportGroup Label="Shared" />
@@ -41,15 +52,23 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ac23|x64'" Label="PropertySheets">
     <Import Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ac24|x64'" Label="PropertySheets">
+    <Import Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" />
+  </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ac22|x64'">
     <LinkIncremental>false</LinkIncremental>
     <TargetExt>.pyd</TargetExt>
-    <OutDir>$(SolutionDir)\..\.release\ac22_module\</OutDir>
+    <OutDir>$(SolutionDir)\..\.release\ac22_modules\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ac23|x64'">
     <LinkIncremental>false</LinkIncremental>
     <TargetExt>.pyd</TargetExt>
-    <OutDir>$(SolutionDir)\..\.release\ac23_module\</OutDir>
+    <OutDir>$(SolutionDir)\..\.release\ac23_modules\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ac24|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetExt>.pyd</TargetExt>
+    <OutDir>$(SolutionDir)\..\.release\ac24_modules\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ac22|x64'">
     <ClCompile>
@@ -91,6 +110,26 @@
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ac24|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;GSROOT_EXPORTS;_WINDOWS;_USRDLL;NOMINMAX;PROJECTNAME="GSRoot";ARCHICAD_AC24=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\.libs\python37\include;..\.libs\pybind11\include;..\.libs\cast;..\.libs\ac24\Brep;..\.libs\ac24\BuiltInLibrary;..\.libs\ac24\BuiltInProperties;..\.libs\ac24\DGGraphix;..\.libs\ac24\DGLib;..\.libs\ac24\Geometry;..\.libs\ac24\Graphix;..\.libs\ac24\GSATLib;..\.libs\ac24\GSModelDevLib;..\.libs\ac24\GSModeler;..\.libs\ac24\GSModeler2D;..\.libs\ac24\GSMSections;..\.libs\ac24\GSRoot;..\.libs\ac24\GSUtils;..\.libs\ac24\GX;..\.libs\ac24\GXImage;..\.libs\ac24\GXImageBase;..\.libs\ac24\GXMedia;..\.libs\ac24\InputOutput;..\.libs\ac24\Markup;..\.libs\ac24\Model3D;..\.libs\ac24\MPIInterfaceDevLib;..\.libs\ac24\MPIInterfaceImpDevLib;..\.libs\ac24\ObjectDatabase;..\.libs\ac24\Pattern;..\.libs\ac24\Phasing;..\.libs\ac24\PointCloud;..\.libs\ac24\PointCloudManager;..\.libs\ac24\PropertyOperations;..\.libs\ac24\QGDrawing;..\.libs\ac24\QuantityTakeoff;..\.libs\ac24\SMLibBrepOperations;..\.libs\ac24\TextEngine;..\.libs\ac24\TWRoot;..\.libs\ac24\UCLib;..\.libs\ac24\UDLib;..\.libs\ac24\VBAttrDialogs;..\.libs\ac24\VBAttributeList;..\.libs\ac24\VBAttributes;..\.libs\ac24\VBAttrOperations;..\.libs\ac24\VBDocument;..\.libs\ac24\VBElemDialogs;..\.libs\ac24\VBElements;..\.libs\ac24\VBElemOperations;..\.libs\ac24\VBUtils;..\.libs\ac24\VectorImage;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\stdafx.h" />
     <ClInclude Include="src\targetver.h" />
@@ -101,6 +140,7 @@
     <ClCompile Include="src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ac22|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ac23|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ac24|x64'">Create</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)|$(Platform)'=='ac22|x64'">
@@ -326,6 +366,122 @@
       <Filter>Libraries</Filter>
     </Library>
     <Library Include="..\.libs\ac23\VectorImage\Win\VectorImageImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='ac24|x64'">
+    <Library Include="..\.libs\python37\libs\python37.lib">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\AlgMath\Win\AlgMathImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\Brep\Win\BrepImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\BrepOperations\Win\BrepOperationsImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\BuiltInLibrary\Win\BuiltInLibraryImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\GSRoot\Win\GSRootImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\DGGraphix\Win\DGGraphixImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\DGLib\Win\DGImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\Geometry\Win\GeometryImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\Graphix\Win\GraphixImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\GSATLib\Win\GSAT2DDataImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\GSModeler\Win\GSModelerImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\GSModeler2D\Win\GSModeler2DImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\GSMSections\Win\GSMSectionsImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\GSUtils\Win\GSUtilsImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\GX\Win\GXImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\GXImage\Win\GXImageImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\GXImageBase\Win\GXImageBaseImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\GXMedia\Win\GXMediaImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\InputOutput\Win\InputOutputImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\Markup\Win\MarkupImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\Model3D\Win\Model3DImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\Pattern\Win\PatternImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\Phasing\Win\PhasingImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\PropertyOperations\Win\PropertyOperationsImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\QuantityTakeoff\Win\QuantityTakeoffImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\SMLibBrepOperations\Win\SMLibBrepOperationsImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\TextEngine\Win\TextEngineImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\UCLib\Win\UCImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\UDLib\Win\UDImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\VBAttrDialogs\Win\VBAttrDialogsImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\VBAttributeList\Win\VBAttributeListImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\VBAttributes\Win\VBAttributesImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\VBAttrOperations\Win\VBAttrOperationsImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\VBElemDialogs\Win\VBElemDialogsImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\VBElemOperations\Win\VBElemOperationsImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\VBUtils\Win\VBUtilsImp.LIB">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="..\.libs\ac24\VectorImage\Win\VectorImageImp.LIB">
       <Filter>Libraries</Filter>
     </Library>
   </ItemGroup>
