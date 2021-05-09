@@ -6,6 +6,8 @@
 #include "Python.h"
 #include "pybind11.h"
 
+#include "cColor.h"
+
 
 // https://pybind11.readthedocs.io/en/stable/
 using namespace pybind11;
@@ -16,4 +18,6 @@ using namespace pybind11;
 
 PYBIND11_MODULE(GSRoot, m) {
 	m.add_object("version", str(PROJECT_VERSION));//Please do not delete the module version number
+
+	loadColorClass(m);
 }

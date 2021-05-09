@@ -131,10 +131,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\cColor.h" />
     <ClInclude Include="src\stdafx.h" />
     <ClInclude Include="src\targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\cColor.cpp" />
     <ClCompile Include="src\dllmain.cpp" />
     <ClCompile Include="src\GSRoot.cpp" />
     <ClCompile Include="src\stdafx.cpp">
